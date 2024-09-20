@@ -1,33 +1,37 @@
-import { useState, useEffect } from "react";
-import { fetchArticles } from "./api";
-import ArticleCard from "./ArticleCard"
-//import { useParams } from "react-router-dom"
+import ArticleCards from "./ArticleCards";
+import { useEffect, useState } from "react";
 
-const ListArticles = () => {
-    const [articles, setArticles] = useState([]);
-    
-    useEffect(() => {
-        fetchArticles()
-          .then((articles) => {
-            setArticles(articles);
-          })
-          .catch((error) => {
-            console.error('Error fetching articles:', error);
-          });
-      }, []);
+import { fetchArticles } from "../app";
 
-        return (
-            <ul className="articles">
-                {articles.map((articles) => {
-                    return (
-                        <li key={articles.article_id}>
-                            <ArticleCard articles={articles}></ArticleCard>
-                        </li>
-                    )
-                })}
-            </ul>
-        )
-    
+export default function ListArticles() {
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setIsError(false);
+    fetchArticles()
+      .then((articles) => {
+        setIsLoading(false);
+        setIsError(false);
+        setArticles(articles);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setIsError(true);
+      });
+  }, []);
+
+  return (
+    <div className="card-container">
+      {!isLoading ? (
+        articles.map((article) => {
+          return <ArticleCards key={article.article_id} article={article} />;
+        })
+      ) : (
+        <p>articles here...</p>
+      )}
+    </div>
+  );
 }
-
-export default ListArticles

@@ -12,3 +12,18 @@ export const fetchArticles = () => {
         return data.articles
     });
 };
+
+export const fetchArticleById = (article_id) => {
+    return fetch(`/api/articles/${article_id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch article: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        return data;
+      });
+  };
+
+export default fetchArticles; fetchArticleById;

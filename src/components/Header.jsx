@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
+import logo from "../Images/banner.png"
 
-function Header() {
-    return (
-        <h1>NC NEWS</h1>
-    )
+
+export default function Header() {
+  return (
+    <Link to={'/'}><h1 className="header"><img src={logo} alt="whats news?" class="banner"/></h1></Link>
+  )
 }
-
-export default Header

@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom'
+import SearchTopics from "./SearchTopics";
+import SearchArticles from "./SearchArticles";
 
-function Nav() {
-    return (
-        <nav className="nav">
-            <Link to="/">All Articles</Link>
-        </nav>
-    )
+export default function Nav() {
+  return (
+    <div className="search-container">
+      <SearchTopics />
+      <SearchArticles />
+    </div>
+  );
 }
-
-export default Nav
