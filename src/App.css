@@ -1,3 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.banner {
+  width: 100%;           /* Full width of the viewport */
+  height: auto;          /* Maintain aspect ratio */
+  display: block;        /* Ensure no inline gaps */
+  object-fit: cover;     /* Ensure image covers the container */
+}
+
+body {background-color: #000000;}
+
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  font-weight: 500;
+  color: #000000 
+}
+  a:hover {
+  color: #3CE573;
+}
+
+h1 {
+  font-family: 'Anton', sans-serif;
+  color: whitesmoke;
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
+/* Article card styling */
+.article-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;  /* Two columns: image (fixed) + text (flexible) */
+  gap: 20px;                         /* Space between the image and text */
+  align-items: center;
+  background-color: #151515;  /* Dark grey background */
+  color: white;            /* White text */
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Title in Anton font */
+.article-card h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Image in the left column */
+.article-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Ensure body content fills the right column */
+.article-card p {
+  margin: 0;
+}
+
+.topic {
+ color: #3CE573
+
+} 
 
 #root {
   max-width: 1280px;
@@ -6,17 +88,108 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+a:visited {
+  color: rgb(255, 255, 255);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+a:hover {
+  color: #3CE573;
+  background-color: rgb(39, 58, 133);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+a:active {
+  color: yellow;
+}
+a:link {
+  color: rgb(2, 2, 2);
+}
+ul {
+  list-style-type: none;
+}
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 1.2em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #3CE573;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+/* Responsive image banner */
+.banner {
+  width: 100%;           /* Full width of the viewport */
+  height: auto;          /* Maintain aspect ratio */
+  display: block;        /* Ensure no inline gaps */
+  object-fit: cover;     /* Ensure image covers the container */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 1.2em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #3CE573;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Media query for smaller screens (tablets and phones) */
+@media (max-width: 768px) {
+  .banner {
+      height: auto;      /* Let the height auto-adjust to maintain aspect ratio */
+      object-fit: cover; /* Cover the container without stretching */
+  }
+}
+
+/* Media query for very small screens (phones) */
+@media (max-width: 480px) {
+  .banner {
+      height: auto;
+  }
+}
+
+/* Media query for smaller screens (tablets and phones) */
+@media (max-width: 768px) {
+  .banner {
+      height: auto;      /* Let the height auto-adjust to maintain aspect ratio */
+      object-fit: cover; /* Cover the container without stretching */
+  }
+}
+
+/* Media query for very small screens (phones) */
+@media (max-width: 480px) {
+  .banner {
+      height: auto;
+  }
 }
 
 @keyframes logo-spin {
